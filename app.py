@@ -9,7 +9,7 @@ openai.api_key="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"
 
 messages=[]
 
-system_msg="write a paragraph for personal statement to a univeristy for a student on information provided by user."
+system_msg="write an entire personal statement to a univeristy for a student on information provided by user."
 messages.append({"role": "system", "content": system_msg})
 
 @app.route('/', methods=['GET', 'POST'])
@@ -52,12 +52,12 @@ def hello_world():
         ans=request.form['research_area']
         messages.append({"role": "user", "content":q + ans})
 
-        response = openai.ChatCompletion.create(
+        """response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
             messages=messages)
 
         reply = response["choices"][0]["message"]["content"]
-        messages.append({"role": "assistant", "content": reply})
+        messages.append({"role": "assistant", "content": reply})"""
         
         #prev job details
 
@@ -118,17 +118,17 @@ def hello_world():
         ans=request.form['personal_social_effect']
         messages.append({"role": "user", "content":q + ans})
 
-        response = openai.ChatCompletion.create(
+        """response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
             messages=messages)
 
         reply = response["choices"][0]["message"]["content"]
-        messages.append({"role": "assistant", "content": reply})
+        messages.append({"role": "assistant", "content": reply})"""
 
         #taking details of undergrad
 
-        q3="How have your undergraduate studies prepared you for advanced research or coursework in your desired graduate program?"
-        messages.append({"role": "assistant", "content": q3})
+       # q3="How have your undergraduate studies prepared you for advanced research or coursework in your desired graduate program?"
+        #messages.append({"role": "assistant", "content": q3})
 
         q="solid foundation in the fundamental theories, concepts, and methodologies through courses: "
         
@@ -151,12 +151,12 @@ def hello_world():
         ans1=request.form['sto_post']
         messages.append({"role": "user", "content":q + ans + q1 + ans1})
 
-        response = openai.ChatCompletion.create(
+        """response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
             messages=messages)
 
         reply = response["choices"][0]["message"]["content"]
-        messages.append({"role": "assistant", "content": reply})
+        messages.append({"role": "assistant", "content": reply})"""
 
         #analytical skills
     
@@ -194,12 +194,12 @@ def hello_world():
         ans1=request.form['timemanage_example']
         messages.append({"role": "user", "content":ans + ":" + ans1})
 
-        response = openai.ChatCompletion.create(
+        """response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
             messages=messages)
 
         reply = response["choices"][0]["message"]["content"]
-        messages.append({"role": "assistant", "content": reply})
+        messages.append({"role": "assistant", "content": reply})"""
 
         #personal background, cultural experiences, or personal challenges contribute to your understanding of the subject matte
 
@@ -228,8 +228,8 @@ def hello_world():
         ans1=request.form['bridgegap_example']
         messages.append({"role": "user", "content":ans + ":" + ans1})
 
-        ans="Now write a personal statement to university according to previous paragraphs you generated."
-        messages.append({"role": "user", "content": ans})
+        """ans="Now write a personal statement to university according to previous paragraphs you generated."
+        messages.append({"role": "user", "content": ans})"""
 
         response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
