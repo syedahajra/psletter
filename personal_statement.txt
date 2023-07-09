@@ -1,23 +1,15 @@
-Based on the information you provided, here is a draft of your personal statement:
+As a highly motivated and dedicated student, I am thrilled to express my interest in the Statistical signal processing for multivariate neuronal data project supervised by Dr. D Halliday in the field of computational neuroscience at your esteemed university. I believe this project aligns perfectly with my academic background and research interests.
 
-Dear Admissions Committee,
+Throughout my academic journey, I have developed a strong passion for statistical signal processing and its applications in various domains. I have taken multiple courses, including Advance DSP, Statistical signal processing, and Machine Learning, which have provided me with a solid theoretical foundation and practical skills in this field. These courses have sparked my interest and curiosity in exploring the application of statistical signal processing techniques in analyzing and interpreting complex neuronal data.
 
-I am writing to express my keen interest in pursuing a Master's degree in Computational Neuroscience at your esteemed institution. As an undergraduate student, I have always been passionate about signal processing and its applications in various domains. My exposure to statistical signal processing courses coupled with my inclination towards machine learning has introduced me to the fascinating area of Computational Neuroscience, which has spurred my quest to explore this field further.
+Furthermore, I had the opportunity to work on a project during my internship at Lambda Theta, where I focused on detection and estimation in radar systems. This experience enhanced my analytical capabilities and further solidified my interest in statistical signal processing. I was able to apply my knowledge of signal processing algorithms and statistical techniques to design and implement efficient algorithms that improve the accuracy of object detection and estimation in radar systems.
 
-My interest in this research area stems from my fascination with the seemingly infinite data available to us in the form of brain signals. The project that I am particularly interested in is "Statistical signal processing for multivariate neuronal data," under the guidance of Dr D Halliday. I am keen to learn techniques for data analysis and modelling that will enable me to understand and quantify the complex patterns hidden in the data.
+In my final year, I undertook a project titled "Estimating the speed of approaching object through statistical signal processing." As the project leader, I successfully applied various statistical signal processing techniques to analyze real-world data and estimate the speed of approaching objects. This project allowed me to showcase my ability to handle complex data, apply relevant methodologies, and communicate my findings effectively.
 
-During my tenure at Lambda Theta, I had the opportunity to work on a project titled "Detection and estimation in radar systems." This project helped me understand the implementation of signal processing theory in real-world applications. Furthermore, my final year project on "Estimating the speed of approaching objects through statistical signal processing" was an opportunity to apply the concepts I learned from my courses to solve a practical problem.
+Moreover, I had the privilege of being selected as the Head of Event Management in the ACM student organization. This role has sharpened my leadership, organization, and communication skills. It has also provided me with valuable experience in coordinating and managing events, ensuring smooth operations, and promoting effective teamwork.
 
-Apart from academia, I have also been an active member of ACM, where I was appointed as the Head of Event Management due to my exceptional communication skills. This experience has honed my leadership skills and given me an opportunity to interact with a diverse group of people, both socially and professionally.
+Alongside my academic pursuits, I strived to maintain a high CGPA of 3.8, demonstrating my commitment to excellence and learning. I have also been recognized for my academic achievements by being listed on the Dean's Honors List for two consecutive years.
 
-My strong academic performance, with a high CGPA of 3.8, has been recognized through the Dean's honours list for two consecutive years. Moreover, I have completed courses in linear systems theory and advanced research methods, which have provided me with a solid foundation in fundamental theories, concepts and methodologies.
+Through my past experiences, I have gained a deep understanding of the importance of statistical signal processing in various fields, and its potential to drive advancements and improvements in society. By further exploring this research area, I aspire to contribute to the development of computational neuroscience and ultimately make a positive impact on society. 
 
-My ultimate goal is to contribute to the progress made in computational neuroscience by developing new and innovative techniques that will aid in the understanding of complex signals. I am confident that with my research experience, coupled with my academic achievements, and enthusiasm for this research area, I am a suitable candidate for your program.
-
-I would be honoured to contribute to your academic community and look forward to hearing from you.
-
-Thank you for considering my application.
-
-Sincerely,
-
-[Your Name]
+In conclusion, I am confident that my academic background, research experiences, leadership skills, and passion for statistical signal processing make me a strong candidate for the Statistical signal processing for multivariate neuronal data project under the supervision of Dr. D Halliday at your university. I look forward to the opportunity to further deepen my knowledge, collaborate with esteemed researchers, and contribute to the advancement of this exciting field. Thank you for considering my application.

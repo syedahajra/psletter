@@ -9,13 +9,16 @@ openai.api_key="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"
 
 messages=[]
 
-system_msg="write an entire personal statement to a univeristy for a student on information provided by user."
-messages.append({"role": "system", "content": system_msg})
+@app.route('/',methods=['GET', 'POST'] )
+def home():
+    return render_template('index.html')
 
-@app.route('/', methods=['GET', 'POST'])
-def hello_world():
+@app.route("/psstatement", methods=['GET', 'POST'])
+def ps_statement():
     if request.method=='POST':
-
+        
+        system_msg="write an entire personal statement to a univeristy for a student on information provided by user."
+        messages.append({"role": "system", "content": system_msg})
         #if interested in specific project
 
         q="Interested in specific project:"
@@ -240,9 +243,115 @@ def hello_world():
         with open('personal_statement.txt', 'w') as personal_statement:
            personal_statement.write(reply)
         print("\n"+reply+"\n")
-        return render_template('index.html',reply=reply)
+        return render_template('psstatement.html',reply=reply)
     
-    return render_template('index.html')
+    return render_template("psstatement.html")
+
+@app.route('/recomletter',methods=['GET', 'POST'] )
+def recom_letter():
+    if request.method=='POST':
+        
+        system_msg="write an entire recommendation letter for graduate school application on information provided by user."
+        messages.append({"role": "system", "content": system_msg})
+       
+        #your intro
+
+        ans=request.form['your_name']
+        messages.append({"role": "user", "content":"Recommender's Name"+ ans})
+        
+        ans=request.form['your_position']
+        messages.append({"role": "user", "content":"Recommender's Position"+ ans})
+
+        ans=request.form['your_organization']
+        messages.append({"role": "user", "content":"Recommender's Organization"+ ans})
+
+        ans=request.form['your_experience']
+        messages.append({"role": "user", "content":"Recommender's Experience"+ ans})
+
+        ans=request.form['your_academicbg']
+        messages.append({"role": "user", "content":"Recommender's Academic background:"+ ans})
+
+        ans=request.form['your_achievements']
+        messages.append({"role": "user", "content":"Recommender's Achievements:"+ ans})
+
+        #their intro
+        ans=request.form['student_name']
+        messages.append({"role": "user", "content":"Students name:"+ ans})
+
+        ans=request.form['grad_prog']
+        messages.append({"role": "user", "content":"Graduate program student is applying to:"+ ans})
+
+        #relationship
+
+        ans=request.form['academic_relationship']
+        ans1=request.form['how_academic']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        ans=request.form['professional_relationship']
+        ans1=request.form['how_professional']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        ans=request.form['supervisory_relationship']
+        ans1=request.form['how_supervisory']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        ans=request.form['collabrative_relationship']
+        ans1=request.form['how_collabrative']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        ans=request.form['community_involvement']
+        ans1=request.form['how_community']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #skills
+        #analytical skills
+    
+        ans=request.form['analytical']
+        ans1=request.form['analytical_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+        
+            #comm skils
+        ans=request.form['communication']
+        ans1=request.form['communication_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #adaptability skils
+        ans=request.form['adaptability']
+        ans1=request.form['adaptability_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #leadership skils
+        ans=request.form['Leadership']
+        ans1=request.form['Leadership_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #teamwork skils
+        ans=request.form['teamwork']
+        ans1=request.form['teamwork_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #continuous learning
+        ans=request.form['continuouslearning']
+        ans1=request.form['continuouslearning_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #time manage skills
+        ans=request.form['timemanage']
+        ans1=request.form['timemanage_example']
+        messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        response = openai.ChatCompletion.create(
+            model = "gpt-3.5-turbo",
+            messages=messages)
+
+        reply = response["choices"][0]["message"]["content"]
+        messages.append({"role": "assistant", "content": reply})
+        with open('recom_letter.txt', 'w') as recom_letter:
+           recom_letter.write(reply)
+        print("\n"+reply+"\n")
+        return render_template('recomletter.html',reply=reply)
+
+    return render_template('recomletter.html')
 
 if __name__ == "__main__":
     app.run(debug=True,port=8000)

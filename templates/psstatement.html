@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #d5dade">
+    <nav class="navbar navbar-expand-lg" style="background-color: #a0a8ad">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="/">PSLETTER</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mb-3">
+      <form class="container m-5" id="myForm" action="/psstatement" method="POST">
+        <!--Research Project Details-->
+        <div name="Research Project Details">
+        <h5>Are you interested in a specific project?</h5>
+        <select
+          class="form-select my-3"
+          name="projectOption"
+          id="projectOption"
+          onchange="toggleProjectTitle()"
+        >
+          <option selected>Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <fieldset id="projectlock" style="display: none">
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Project Title:</span
+            >
+            <input
+              type="text"
+              id="project_title"
+              name="project_title"
+              class="form-control"
+              placeholder="Project Title"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold"
+              >Research Application:</span
+            >
+            <input
+              type="text"
+              id="research_application"
+              name="research_application"
+              class="form-control"
+              placeholder="Research Application"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold"
+              >Research Supervisor:</span
+            >
+            <input
+              type="text"
+              id="research_supervisor"
+              name="research_supervisor"
+              class="form-control"
+              placeholder="Supervisor Name"
+            />
+          </div>
+        </fieldset>
+        <div class="input-group mb-3">
+          <span class="input-group-text fw-semibold" id="basic-ra"
+            >Research Area you are interested in:</span
+          >
+          <input
+            type="text"
+            name="research_area"
+            class="form-control"
+            placeholder="Research Area"
+            aria-describedby="basic-ra"
+          />
+        </div>
+        </div>
+        <!--interest in research area-->
+        <div name="interest in research area">
+        <h5>What sparked your interest in this research area:</h5>
+        <div class="container p-3 bg-white rounded-3 shadow-sm">
+        <!--prev work-->
+        <div class="form-check ">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="Previous Work"
+            id="previous_work"
+            onchange="toggleworklock()"
+          />
+          <label class="form-check-label" for="previous_work">
+            Previous Work
+          </label>
+          <div class="container" id="work_lock" style="display: none">
+            <!--prev job or internship details-->
+            <div class="form-check" name="prev job or internship desc">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Job/Internship"
+              id="job_internship"
+              onchange="togglejoblock()"
+            />
+            <label class="form-check-label" for="job_internship">Job/Internship</label>
+            <div class="container" id="job_lock" style="display: none">
+                <div class="input-group m-1">
+              <span class="input-group-text fw-semibold">Organization</span>
+              <input
+                type="text"
+                name="organization_name"
+                class="form-control"
+                placeholder="Organization Name"
+                aria-describedby="organization_name"
+              />
+            </div>
+              <div class="input-group m-1">
+              <span class="input-group-text fw-semibold">Project</span>
+              <input
+                type="text"
+                name="job_project"
+                class="form-control"
+                placeholder="Description of project you worked upon"
+                aria-describedby="job_project"
+              /></div>
+            </div>
+            </div>
+            <!--fyp details-->
+            <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="FYP/Research Project"
+              id="fyp_research_project"
+              onchange="togglemyprojlock()"
+            />
+            <label class="form-check-label" for="fyp_research_project">FYP/Research Project</label>
+            <div class="container" id="proj_lock" style="display: none">
+                <div class="input-group m-1">
+              <span class="input-group-text fw-semibold" >Project Title</span>
+              <input
+                type="text"
+                class="form-control"
+                name="my_project_title"
+                placeholder="Your Project Title"
+              />
+            </div>
+              <div class="input-group m-1">
+              <span class="input-group-text fw-semibold">Relevancy:</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="How is it relevant to the project you want to work on"
+                name="my_project_details"
+              /></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <!--courses relevant-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="courses"
+            id="courses"
+            onchange="togglecourseslock()"
+          />
+          <label class="form-check-label" for="courses">
+            Series of courses I took
+          </label>
+          <div class="container" id="courses_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Courses:</span>
+                <input
+                  type="text"
+                  name="series_of_courses"
+                  class="form-control"
+                  placeholder="Name atleast 2 courses"
+                />
+              </div>
+        </div>
+        </div>
+        <!--seminar or listen to researcher-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="seminar"
+            id="seminar"
+            onchange="toggleseminarlock()"
+          />
+          <label class="form-check-label" for="seminar">
+            Attending a conference or seminar or listen esteemed researchers and professionals
+          </label>
+          <div class="container" id="seminar_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Seminar title:</span>
+                <input
+                  type="text"
+                  name="seminar_name"
+                  class="form-control"
+                  placeholder="Seminar/Conference topic of discussion"
+                />
+              </div>
+        </div>
+        </div>
+        <!--explore novel tech-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            name="explore_techy"
+            id="explore_techy"
+            onchange="novellock()"
+          />
+          <label class="form-check-label" for="explore_techy">
+            Explore novel technologies
+          </label>
+        </div>
+        <!--societal effect-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="social_effect"
+            id="social_effect"
+            onchange="togglesocialeffectlock()"
+          />
+          <label class="form-check-label" for="social_effect">
+           Effect on society
+          </label>
+          <div class="container" id="social_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="personal_social_effect"
+                  class="form-control"
+                  placeholder="Explain effect on society"
+                />
+              </div>
+        </div>
+        </div>
+    </div>
+        </div>
+        <!--undergrad deets-->
+        <div name="undergrad details">
+        <h5 class="py-2">How have your undergraduate studies prepared you for advanced research or coursework in your desired graduate program?</h5>
+        <div class="container p-3 bg-white rounded-3 shadow-sm">
+        <!--courses name-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="foundation"
+            id="foundation"
+            onchange="togglefoundationlock()"
+          />
+          <label class="form-check-label" for="foundation">
+            solid foundation in the fundamental theories, concepts, and methodologies
+          </label>
+          <div class="container" id="foundation_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Courses:</span>
+                <input
+                  type="text"
+                  name="foundation_courses"
+                  class="form-control"
+                  placeholder="Name atleast 2 courses"
+                />
+              </div>
+        </div>
+        </div>
+        <!--gpa-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="gpa"
+            id="gpa"
+            onchange="togglegpalock()"
+          />
+          <label class="form-check-label" for="gpa">
+            maintained a high GPA
+          </label>
+          <div class="container" id="gpa_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">CGPA</span>
+                <input
+                  type="text"
+                  name="cgpa"
+                  class="form-control"
+                  placeholder="Enter your CGPA"
+                />
+              </div>
+        </div>
+        </div>
+        <!--academic award-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="award"
+            id="award"
+            onchange="toggleawardlock()"
+          />
+          <label class="form-check-label" for="award">
+            recognized with academic awards
+          </label>
+          <div class="container" id="award_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Awards</span>
+                <input
+                  type="text"
+                  name="academic_awards"
+                  class="form-control"
+                  placeholder="Name Awards that you have recved"
+                />
+              </div>
+        </div>
+        </div>
+        <!--member of student org-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="STO"
+            id="STO"
+            onchange="toggleSTOlock()"
+          />
+          <label class="form-check-label" for="STO">
+            Member of student organization/society
+          </label>
+          <div class="container" id="STO_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Organization:</span>
+                <input
+                  type="text"
+                  name="sto_name"
+                  class="form-control"
+                  placeholder="Organization or Society name"
+                />
+              </div>
+              <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Post:</span>
+                <input
+                  type="text"
+                  name="sto_post"
+                  class="form-control"
+                  placeholder="Your post in that Organization or Society"
+                />
+              </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!--Personal Qualitites or skills-->
+        <h5 class="py-2">What personal qualities or skills do you possess that make you a strong candidate for graduate studies?</h5>
+        <div class="container p-3 bg-white rounded-3 shadow-sm">
+        <!--analytical skills-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="analytical"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="strong analytical and problem-solving skills"
+            id="analytical"
+            name="analytical"
+            onchange="toggleanalyticallock()"
+          />
+          <label class="form-check-label" for="analytical">
+            strong analytical and problem-solving skills
+          </label>
+          <div class="container" id="analytical_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="analytical_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your analytical and problem-solving skills"
+                />
+              </div>
+        </div>
+        </div>
+        <!--communication skill-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="communication"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="excellent communication and interpersonal skills"
+            id="communication"
+            name="communication"
+            onchange="togglecommunicationlock()"
+          />
+          <label class="form-check-label" for="communication">
+            excellent communication and interpersonal skills
+          </label>
+          <div class="container" id="communication_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="communication_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your communication and interpersonal skills"
+                />
+              </div>
+        </div>
+        </div>
+        <!--adaptability-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="adaptability"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="Adaptability and Resilience"
+            id="adaptability"
+            name="adaptability"
+            onchange="toggleadaptabilitylock()"
+          />
+          <label class="form-check-label" for="adaptability">
+            Adaptability and Resilience
+          </label>
+          <div class="container" id="adaptability_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="adaptability_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your Adaptability and resilience"
+                />
+              </div>
+        </div>
+        </div>
+        <!--leadership-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="Leadership"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="Leadership"
+            id="Leadership"
+            name="Leadership"
+            onchange="toggleLeadershiplock()"
+          />
+          <label class="form-check-label" for="Leadership">
+            Leadership
+          </label>
+          <div class="container" id="Leadership_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="Leadership_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your Leadership skills"
+                />
+              </div>
+        </div>
+        </div>
+        <!--Team Work-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="teamwork"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="Team Work"
+            id="teamwork"
+            name="teamwork"
+            onchange="toggleteamworklock()"
+          />
+          <label class="form-check-label" for="teamwork">
+            Team Work
+          </label>
+          <div class="container" id="teamwork_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="teamwork_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your team work"
+                />
+              </div>
+        </div>
+        </div>
+        <!--continuous learning-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="continuouslearning"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="passion for continuous learning and intellectual curiosity"
+            id="continuouslearning"
+            name="continuouslearning"
+            onchange="togglecontinuouslearninglock()"
+          />
+          <label class="form-check-label" for="continuouslearning">
+            passion for continuous learning and intellectual curiosity
+          </label>
+          <div class="container" id="continuouslearning_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="continuouslearning_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your passion for continuous learning and intellectual curiosity">
+              </div>
+        </div>
+        </div>
+        <!--time manage skills-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="timemanage"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="time management skills"
+            id="timemanage"
+            name="timemanage"
+            onchange="toggletimemanagelock()"
+          />
+          <label class="form-check-label" for="timemanage">
+            time management skills
+          </label>
+          <div class="container" id="timemanage_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="timemanage_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your time management skills">
+              </div>
+        </div>
+        </div>
+        </div>
+        <h5 class="py-2">How do your personal background, cultural experiences, or personal challenges contribute to your understanding of the subject matter?</h5>
+        <div class="container p-3 bg-white rounded-3 shadow-sm">
+        <!--appreciation-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="appreciation"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="appreciation for different perspectives and the ability to approach problems with an open mind"
+            id="appreciation"
+            name="appreciation"
+            onchange="toggleappreciationlock()"
+          />
+          <label class="form-check-label" for="appreciation">
+            appreciation for different perspectives and the ability to approach problems with an open mind
+          </label>
+          <div class="container" id="appreciation_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="appreciation_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your appreciation for different perspectives and the ability to approach problems with an open mind"
+                />
+              </div>
+        </div>
+        </div>
+        <!--tackle complex-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="complexprob"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="appreciation for different perspectives and the ability to approach problems with an open mind"
+            id="complexprob"
+            name="complexprob"
+            onchange="togglecomplexproblock()"
+          />
+          <label class="form-check-label" for="complexprob">
+            tackle complex problems with determination & view setbacks as opportunities for growth and innovation
+          </label>
+          <div class="container" id="complexprob_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="complexprob_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows how you tackle complex problems with determination & view setbacks as opportunities for growth and innovation"
+                />
+              </div>
+        </div>
+        </div>
+        <!--innovative sol-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="innovativesol"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="innovative solutions that are inclusive, sustainable, and accessible to underserved populations"
+            id="innovativesol"
+            name="innovativesol"
+            onchange="toggleinnovativesollock()"
+          />
+          <label class="form-check-label" for="innovativesol">
+            innovative solutions that are inclusive, sustainable, and accessible to underserved populations
+          </label>
+          <div class="container" id="innovativesol_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="innovativesol_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows how you came up with innovative solutions that are inclusive, sustainable, and accessible to underserved populations"
+                />
+              </div>
+        </div>
+        </div>
+        <!--comparative pers-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="comparativepers"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="comparative perspective, allowing me to identify best practices from different contexts and apply them in innovative ways"
+            id="comparativepers"
+            name="comparativepers"
+            onchange="togglecomparativeperslock()"
+          />
+          <label class="form-check-label" for="comparativepers">
+            comparative perspective, allowing me to identify best practices from different contexts and apply them in innovative ways
+          </label>
+          <div class="container" id="comparativepers_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="comparativepers_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows your comparative perspective"
+                />
+              </div>
+        </div>
+        </div>
+        <!--bridge gap-->
+        <div class="form-check">
+            <input
+            class="form-check-input"
+            type="hidden"
+            value=" "
+            name="bridgegap"
+          />
+            <input
+            class="form-check-input"
+            type="checkbox"
+            value="bridge the gap between theory and practice, ensuring that my contributions to the field are both relevant and impactful"
+            id="bridgegap"
+            name="bridgegap"
+            onchange="togglebridgegaplock()"
+          />
+          <label class="form-check-label" for="bridgegap">
+            bridge the gap between theory and practice, ensuring that my contributions to the field are both relevant and impactful
+          </label>
+          <div class="container" id="bridgegap_lock" style="display: none">
+            <div class="input-group m-1">
+                <span class="input-group-text fw-semibold">Example:</span>
+                <input
+                  type="text"
+                  name="bridgegap_example"
+                  class="form-control"
+                  placeholder="Cite atleast one example that shows how you bridge the gap between theory and practice, ensuring that my contributions to the field are both relevant and impactful"
+                />
+              </div>
+        </div>
+        </div>
+        </div>
+        <button type="submit" id="submitbtn" class="btn btn-dark my-3" onclick="togglespinner()">Submit</button>
+    </div>  
+    </form>
+    <div class="container">
+      <div id="replyDiv" class="container m-3 bg-white rounded-3 shadow-lg">
+        <h4 class="fw-semibold text-center p-4">Personal Statement:</h4>
+        <p class="fs-4 p-5" id="replyParagraph">{{reply}}</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" id="submitbtn_lock" style="display: none;">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        function togglespinner(){
+            document.getElementById("submitbtn_lock").style.display = "block";
+        }
+
+        function togglebridgegaplock(){
+            if (document.getElementById("bridgegap").checked) {
+                document.getElementById("bridgegap_lock").style.display = "block";
+            } else {
+                document.getElementById("bridgegap_lock").style.display = "none";
+            }
+        }
+
+        function togglecomparativeperslock(){
+            if (document.getElementById("comparativepers").checked) {
+                document.getElementById("comparativepers_lock").style.display = "block";
+            } else {
+                document.getElementById("comparativepers_lock").style.display = "none";
+            }
+        }
+
+        function toggleinnovativesollock(){
+            if (document.getElementById("innovativesol").checked) {
+                document.getElementById("innovativesol_lock").style.display = "block";
+            } else {
+                document.getElementById("innovativesol_lock").style.display = "none";
+            }
+        }
+
+        function togglecomplexproblock(){
+            if (document.getElementById("complexprob").checked) {
+                document.getElementById("complexprob_lock").style.display = "block";
+            } else {
+                document.getElementById("complexprob_lock").style.display = "none";
+            }
+        }
+
+        function toggleappreciationlock(){
+            if (document.getElementById("appreciation").checked) {
+                document.getElementById("appreciation_lock").style.display = "block";
+            } else {
+                document.getElementById("appreciation_lock").style.display = "none";
+            }
+        }
+
+        function toggletimemanagelock(){
+            if (document.getElementById("timemanage").checked) {
+                document.getElementById("timemanage_lock").style.display = "block";
+            } else {
+                document.getElementById("timemanage_lock").style.display = "none";
+            }
+        }
+
+        function togglecontinuouslearninglock(){
+            if (document.getElementById("continuouslearning").checked) {
+                document.getElementById("continuouslearning_lock").style.display = "block";
+            } else {
+                document.getElementById("continuouslearning_lock").style.display = "none";
+            }
+        }
+
+        function toggleteamworklock(){
+            if (document.getElementById("teamwork").checked) {
+                document.getElementById("teamwork_lock").style.display = "block";
+            } else {
+                document.getElementById("teamwork_lock").style.display = "none";
+            }
+        }
+
+        function toggleLeadershiplock(){
+            if (document.getElementById("Leadership").checked) {
+                document.getElementById("Leadership_lock").style.display = "block";
+            } else {
+                document.getElementById("Leadership_lock").style.display = "none";
+            }
+        }
+
+        function toggleadaptabilitylock(){
+            if (document.getElementById("adaptability").checked) {
+                document.getElementById("adaptability_lock").style.display = "block";
+            } else {
+                document.getElementById("adaptability_lock").style.display = "none";
+            }
+        }
+
+        function togglecommunicationlock(){
+            if (document.getElementById("communication").checked) {
+                document.getElementById("communication_lock").style.display = "block";
+            } else {
+                document.getElementById("communication_lock").style.display = "none";
+            }
+        }
+
+        function toggleanalyticallock(){
+            if (document.getElementById("analytical").checked) {
+                document.getElementById("analytical_lock").style.display = "block";
+            } else {
+                document.getElementById("analytical_lock").style.display = "none";
+            }
+        }
+
+        function toggleSTOlock(){
+            if (document.getElementById("STO").checked) {
+                document.getElementById("STO_lock").style.display = "block";
+            } else {
+                document.getElementById("STO_lock").style.display = "none";
+            }
+        }
+
+        function toggleawardlock(){
+            if (document.getElementById("award").checked) {
+                document.getElementById("award_lock").style.display = "block";
+            } else {
+                document.getElementById("award_lock").style.display = "none";
+            }
+        }
+
+        function togglegpalock(){
+            if (document.getElementById("gpa").checked) {
+                document.getElementById("gpa_lock").style.display = "block";
+            } else {
+                document.getElementById("gpa_lock").style.display = "none";
+            }
+        }
+
+        function toggleProjectTitle() {
+            if (document.getElementById("projectOption").value === "Yes") {
+                document.getElementById("projectlock").style.display = "block";
+            } else {
+                document.getElementById("projectlock").style.display = "none";
+            }
+        }
+
+        function toggleworklock(){
+            if(document.getElementById("previous_work").checked){
+                document.getElementById("work_lock").style.display="block";
+            }
+            else {
+                document.getElementById("work_lock").style.display="none";
+            }
+        }
+
+        function togglejoblock() {
+            if (document.getElementById("job_internship").checked) {
+            document.getElementById("job_lock").style.display = "block";
+            } else {
+            document.getElementById("job_lock").style.display = "none";
+            }
+        }
+
+        function togglemyprojlock(){
+            if (document.getElementById("fyp_research_project").checked) {
+            document.getElementById("proj_lock").style.display = "block";
+            } else {
+            document.getElementById("proj_lock").style.display = "none";
+            }
+        }
+        
+        function togglecourseslock(){
+            if (document.getElementById("courses").checked) {
+            document.getElementById("courses_lock").style.display = "block";
+            } else {
+            document.getElementById("courses_lock").style.display = "none";
+            }
+        }
+
+        function toggleseminarlock(){
+            if (document.getElementById("seminar").checked) {
+            document.getElementById("seminar_lock").style.display = "block";
+            } else {
+            document.getElementById("seminar_lock").style.display = "none";
+            }
+        }
+
+        function novellock(){
+            if (document.getElementById("explore_techy").checked) {
+            document.getElementById("explore_techy").value = "Yes";
+            } else {
+            document.getElementById("explore_techy").value = "No";
+            }
+        }
+
+        function togglesocialeffectlock(){
+            if (document.getElementById("social_effect").checked) {
+            document.getElementById("social_lock").style.display = "block";
+            } else {
+            document.getElementById("social_lock").style.display = "none";
+            }
+        }
+
+        function togglefoundationlock(){
+            if (document.getElementById("foundation").checked) {
+            document.getElementById("foundation_lock").style.display = "block";
+            } else {
+            document.getElementById("foundation_lock").style.display = "none";
+            }
+        }
+    </script>
+  </body>
+</html>
