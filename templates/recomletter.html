@@ -28,7 +28,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
             <a class="nav-link" href="#">Features</a>
           </div>
         </div>
@@ -545,12 +545,38 @@
           </div>
           </div>
           </div>
+          <div name ="recompower" class="container p-3 bg-white rounded-3 shadow-sm mt-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="recompower" id="flexRadioDefault1" value="Highly Recommend">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Highly Recommend
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="hidden"
+              value=" "
+              name="recompower"
+            />
+            <input class="form-check-input" type="radio" name="recompower" id="flexRadioDefault2" value="Recommend">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Recommend
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="recompower" id="flexRadioDefault3" value="Neutral">
+            <label class="form-check-label" for="flexRadioDefault3">
+              Neutral
+            </label>
+          </div>
+        </div>
           <button type="submit" id="submitbtn" class="btn btn-dark my-3" onclick="togglespinner()">Submit</button>
       </form>
     </div>
     <div class="container">
       <div id="replyDiv" class="container m-3 bg-white rounded-3 shadow-lg">
-        <h4 class="fw-semibold text-center p-4">Recomendation Letter:</h4>
+        <h4 class="fw-semibold text-center p-4">Recommendation Letter:</h4>
         <p class="fs-4 p-5" id="replyParagraph">{{reply}}</p>
         <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status" id="submitbtn_lock" style="display: none;">

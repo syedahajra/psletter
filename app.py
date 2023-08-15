@@ -7,16 +7,202 @@ app = Flask(__name__)
 openai.api_key="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"
 #openai.api_key = "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"
 
-messages=[]
+
 
 @app.route('/',methods=['GET', 'POST'] )
 def home():
     return render_template('index.html')
 
+@app.route('/researchstatement',methods=['GET', 'POST'] )
+def researchstatement():
+    if request.method=='POST':
+
+        messages=[]
+        system_msg="write an entire research statement for faculty position on information provided by user."
+        messages.append({"role": "system", "content": system_msg})
+
+        ans=request.form['your_name']
+        messages.append({"role": "user", "content":"Name:"+ ans})
+
+        ans=request.form['degree']
+        messages.append({"role": "user", "content":"Highest Degree:"+ ans})
+
+        ans=request.form['specialization']
+        messages.append({"role": "user", "content":"Specialization in:"+ ans})
+
+        ans=request.form['uni_name']
+        messages.append({"role": "user", "content":"Univeristy from which specialization is done:"+ ans})
+
+        ans=request.form['research']
+        messages.append({"role": "user", "content":"Current research:"+ ans})
+
+        ans=request.form['research_imp']
+        messages.append({"role": "user", "content":"Current research importance:"+ ans})
+
+        ans=request.form['techniques_used']
+        messages.append({"role": "user", "content":"Methodologies and Techniques Employed in current Research:"+ ans})
+
+        ans=request.form['contribution_field']
+        messages.append({"role": "user", "content":"Contributions to the Field of Research:"+ ans})
+
+        ans=request.form['research_applied']
+        messages.append({"role": "user", "content":"Potential Commercial and Academic Applications of your Research:"+ ans})
+
+        ans=request.form['research_impact']
+        messages.append({"role": "user", "content":"Impact on Related Fields and Interdisciplinary Connections:"+ ans})
+
+        ans=request.form['research_new_ques']
+        messages.append({"role": "user", "content":"Emerging Research Questions and Future Directions:"+ ans})
+
+        ans=request.form['major_findings']
+        messages.append({"role": "user", "content":"Key Discoveries, Results, and Significance of Research Outcomes:"+ ans})
+
+        ans=request.form['preliminary_results']
+        messages.append({"role": "user", "content":"Initial Insights and Early Discoveries from your Research:"+ ans})
+
+        ans=request.form['prevresearchtog']
+        messages.append({"role": "user", "content":"Was your previous research area different from current:"+ ans})
+
+        if ans=="Yes":
+
+            ans=request.form['prevresearch_area']
+            messages.append({"role": "user", "content":"Previous research area:"+ ans})
+
+            ans=request.form['prevresearch']
+            messages.append({"role": "user", "content":"previous research:"+ ans})
+
+            ans=request.form['prevresearch_results']
+            messages.append({"role": "user", "content":"Results and findings of previous research:"+ ans})
+
+            ans=request.form['prevresearch_affect']
+            messages.append({"role": "user", "content":" how previous research affect the field/research community:"+ ans})
+
+            ans=request.form['publishedpapers']
+            messages.append({"role": "user", "content":"details about any papers you have published:"+ ans})
+
+            ans=request.form['awards']
+            messages.append({"role": "user", "content":"Have you received any awards or recognitions for your research?"+ ans})
+
+            ans=request.form['citations']
+            messages.append({"role": "user", "content":"How widely has your research been cited? "+ ans})
+
+            ans=request.form['followup']
+            messages.append({"role": "user", "content":"provide some insights into how your current research findings (if any) have led to any follow-up studies or new research questions:"+ ans})
+
+
+        ans=request.form['futureresearch_area']
+        messages.append({"role": "user", "content":"Research area you want to work in future:"+ ans})
+
+        ans=request.form['futureresearch_why']
+        messages.append({"role": "user", "content":"If changing research area then why:"+ ans})
+
+        ans=request.form['develop_new_skills']
+        messages.append({"role": "user", "content":"How do you plan to develop new skills and knowledge for your future research:"+ ans})
+
+        ans=request.form['futureresearch_imp']
+        messages.append({"role": "user", "content":"Importance and Relevance of Future Research:"+ ans})
+
+        ans=request.form['futuretechniques_used']
+        messages.append({"role": "user", "content":"Methodologies and Techniques that will be employed in the Research:"+ ans})
+
+        ans=request.form['futurecontribution_field']
+        messages.append({"role": "user", "content":"Envisioned Contributions to the Field Through Future Research:"+ ans})
+
+        ans=request.form['futureresearch_applied']
+        messages.append({"role": "user", "content":"Future Applications of Research: Commercial and Academic Impact:"+ ans})
+
+        ans=request.form['futuresearch_impact']
+        messages.append({"role": "user", "content":"Potential Cross-Disciplinary Impact of Future Research:"+ ans})
+
+        response = openai.ChatCompletion.create(
+            model = "gpt-3.5-turbo",
+            messages=messages)
+
+        reply = response["choices"][0]["message"]["content"]
+        messages.append({"role": "assistant", "content": reply})
+        with open('research_statement.txt', 'w') as research_statement:
+           research_statement.write(reply)
+        print("\n"+reply+"\n")
+        return render_template('researchstatement.html',reply=reply)
+
+    return render_template('researchstatement.html')
+
+@app.route('/teachingstatement',methods=['GET', 'POST'] )
+def teachingstatement():
+    if request.method=='POST':
+        messages=[]
+        system_msg="write an entire teaching statement for user on information provided by user."
+        messages.append({"role": "system", "content": system_msg})
+
+        ans=request.form['your_name']
+        messages.append({"role": "user", "content":"Name:"+ ans})
+
+        ans=request.form['degree']
+        messages.append({"role": "user", "content":"Highest Degree:"+ ans})
+
+        ans=request.form['specialization']
+        messages.append({"role": "user", "content":"Specialization in:"+ ans})
+
+        ans=request.form['uni_name']
+        messages.append({"role": "user", "content":"Univeristy from which specialization is done:"+ ans})
+
+        ans=request.form['your_prev_subj']
+        messages.append({"role": "user", "content":"subject(s) that i have previously taught:"+ ans})
+
+        ans=request.form['your_subj']
+        messages.append({"role": "user", "content":"subject(s) wanting to teach:"+ ans})
+
+        ans=request.form['your_experience']
+        messages.append({"role": "user", "content":"Experience:"+ ans})
+
+        ans=request.form['your_position']
+        messages.append({"role": "user", "content":"Position:"+ ans})
+
+        ans=request.form['your_organization']
+        messages.append({"role": "user", "content":"Organizations previously worked in:"+ ans})
+
+        ans=request.form['relevant_position']
+        messages.append({"role": "user", "content":"any other relevant position:"+ ans})
+
+        ans=request.form['learning_occurs']
+        messages.append({"role": "user", "content":"My conception of how learning occurs:"+ ans})
+
+        ans=request.form['teaching_method']
+        messages.append({"role": "user", "content":"A description of how my teaching facilitates student learning:"+ ans})
+
+        ans=request.form['reason_teaching_method']
+        messages.append({"role": "user", "content":"A reflection of why I teach the way you do:"+ ans})
+
+        ans=request.form['goals']
+        messages.append({"role": "user", "content":"the goals I have for myself and for my students:"+ ans})
+        
+        ans=request.form['evidence']
+        messages.append({"role": "user", "content":"What, for me, constitutes evidence of student learning::"+ ans})
+
+        ans=request.form['inclusive_learning']
+        messages.append({"role": "user", "content":"The ways in which you create an inclusive learning environment:"+ ans})
+
+        ans=request.form['your_interests']
+        messages.append({"role": "user", "content":"Your interests in new techniques, activities, and types of learning:"+ ans})
+        
+        #print(messages)
+        response = openai.ChatCompletion.create(
+            model = "gpt-3.5-turbo",
+            messages=messages)
+
+        reply = response["choices"][0]["message"]["content"]
+        messages.append({"role": "assistant", "content": reply})
+        with open('teaching_statement.txt', 'w') as teaching_statement:
+           teaching_statement.write(reply)
+        print("\n"+reply+"\n")
+        return render_template('teachingstatement.html',reply=reply)
+
+    return render_template('teachingstatement.html')
+
 @app.route("/psstatement", methods=['GET', 'POST'])
 def ps_statement():
     if request.method=='POST':
-        
+        messages=[]
         system_msg="write an entire personal statement to a univeristy for a student on information provided by user."
         messages.append({"role": "system", "content": system_msg})
         #if interested in specific project
@@ -250,23 +436,23 @@ def ps_statement():
 @app.route('/recomletter',methods=['GET', 'POST'] )
 def recom_letter():
     if request.method=='POST':
-        
+        messages=[]
         system_msg="write an entire recommendation letter for graduate school application on information provided by user."
         messages.append({"role": "system", "content": system_msg})
        
         #your intro
 
         ans=request.form['your_name']
-        messages.append({"role": "user", "content":"Recommender's Name"+ ans})
+        messages.append({"role": "user", "content":"Recommender's Name:"+ ans})
         
         ans=request.form['your_position']
-        messages.append({"role": "user", "content":"Recommender's Position"+ ans})
+        messages.append({"role": "user", "content":"Recommender's Position:"+ ans})
 
         ans=request.form['your_organization']
-        messages.append({"role": "user", "content":"Recommender's Organization"+ ans})
+        messages.append({"role": "user", "content":"Recommender's Organization:"+ ans})
 
         ans=request.form['your_experience']
-        messages.append({"role": "user", "content":"Recommender's Experience"+ ans})
+        messages.append({"role": "user", "content":"Recommender's Experience:"+ ans})
 
         ans=request.form['your_academicbg']
         messages.append({"role": "user", "content":"Recommender's Academic background:"+ ans})
@@ -339,6 +525,10 @@ def recom_letter():
         ans=request.form['timemanage']
         ans1=request.form['timemanage_example']
         messages.append({"role": "user", "content":ans + ":" + ans1})
+
+        #recompower
+        ans=request.form['recompower']
+        messages.append({"role": "user", "content": ans})
 
         response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",

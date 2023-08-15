@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #d5dade">
+    <nav class="navbar navbar-expand-lg" style="background-color: #a0a8ad">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="/">PSLETTER</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="#">Features</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mb-3">
+      <form
+        class="container m-5"
+        id="myForm"
+        action="/researchstatement"
+        method="POST"
+      >
+        <div name="intro">
+          <h5>Introduce yourself:</h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Name:</span
+            >
+            <input
+              type="text"
+              id="your_name"
+              name="your_name"
+              class="form-control"
+              placeholder="Your Name"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Highest Degree:</span
+            >
+            <select name="degree">
+              <option value="None">Select Programme</option>
+              <option value="Bachelors">Bachelors</option>
+              <option value="Masters">Masters</option>
+              <option value="Ph.D">Ph.D</option>
+            </select>
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Specialization:</span
+            >
+            <input
+              type="text"
+              id="specialization"
+              name="specialization"
+              class="form-control"
+              placeholder="Your Specialization "
+              aria-describedby="basic-pt"
+            />
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >University:</span
+            >
+            <input
+              type="text"
+              id="uni_name"
+              name="uni_name"
+              class="form-control"
+              placeholder="Your University name from where you've done your specialization "
+              aria-describedby="basic-pt"
+            />
+          </div>
+        
+        <div name="currentresearch" >
+          <h5 class="py-3">
+            Your Current Research:
+          </h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >What is your research:</span
+            >
+            <textarea
+              type="text"
+              id="research"
+              name="research"
+              class="form-control"
+              placeholder="Significance and Importance of your Research"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Why is your research important:</span
+            >
+            <textarea
+              type="text"
+              id="research_imp"
+              name="research_imp"
+              class="form-control"
+              placeholder="Significance and Importance of your Research"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >What techniques do you use:</span
+            >
+            <textarea
+              type="text"
+              id="techniques_used"
+              name="techniques_used"
+              class="form-control"
+              placeholder="Methodologies and Techniques Employed in your Research"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >How have you contributed to your field:</span
+            >
+            <textarea
+              type="text"
+              id="contribution_field"
+              name="contribution_field"
+              class="form-control"
+              placeholder="Contributions to the Field of Research"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >How can your research be applied commercially or academically:</span
+            >
+            <textarea
+              type="text"
+              id="research_applied"
+              name="research_applied"
+              class="form-control"
+              placeholder="Potential Commercial and Academic Applications of your Research "
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Does your research have an impact on allied fields:</span
+            >
+            <textarea
+              type="text"
+              id="research_impact"
+              name="research_impact"
+              class="form-control"
+              placeholder="Impact on Related Fields and Interdisciplinary Connections"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Is your research directing you to newer questions:</span
+            >
+            <textarea
+              type="text"
+              id="research_new_ques"
+              name="research_new_ques"
+              class="form-control"
+              placeholder="Emerging Research Questions and Future Directions"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >What are the major findings, outcomes, and implications of your research:</span
+            >
+            <textarea
+              type="text"
+              id="major_findings"
+              name="major_findings"
+              class="form-control"
+              placeholder="Key Discoveries, Results, and Significance of Research Outcomes"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Could you also share any preliminary results that have emerged from your research:</span
+            >
+            <textarea
+              type="text"
+              id="preliminary_results"
+              name="preliminary_results"
+              class="form-control"
+              placeholder="Initial Insights and Early Discoveries from your Research"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+        </div>
+
+        <div name="prevresearch" >
+            <h5 class="py-3">
+              Your Previous Research:
+            </h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text fw-semibold" id="basic-pt"
+              >Was your previous research area different from current:</span
+            >
+            <select name="prevresearchtog"
+            id="prevresearchtog"
+            onchange="toggleprevresearch()">
+              <option value="None">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            </div>
+                <fieldset id="prevresearchlock" style="display: none">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold" id="basic-pt"
+                          >What was your previous research area:</span
+                        >
+                        <textarea
+                          type="text"
+                          id="prevresearch_area"
+                          name="prevresearch_area"
+                          class="form-control"
+                          placeholder="Previous research area"
+                          aria-describedby="basic-pt"></textarea>
+                      </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold" id="basic-pt"
+                          >What was your research:</span
+                        >
+                        <textarea
+                          type="text"
+                          id="prevresearch"
+                          name="prevresearch"
+                          class="form-control"
+                          placeholder="Previous research details"
+                          aria-describedby="basic-pt"></textarea>
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                      <span class="input-group-text fw-semibold" id="basic-pt"
+                        >What were your obtained results:</span
+                      >
+                      <textarea
+                        type="text"
+                        id="prevresearch_results"
+                        name="prevresearch_results"
+                        class="form-control"
+                        placeholder="Results and findings of previous research"
+                        aria-describedby="basic-pt"
+                      ></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text fw-semibold"
+                        >How does your previous research affect the field/research community:</span
+                      >
+                      <textarea
+                        type="text"
+                        id="prevresearch_affect"
+                        name="prevresearch_affect"
+                        class="form-control"
+                        placeholder=""
+                      ></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold"
+                          >Details about Published Papers:</span
+                        >
+                        <textarea
+                          type="text"
+                          id="publishedpapers"
+                          name="publishedpapers"
+                          class="form-control"
+                          placeholder="Could you provide details about any papers you have published? Titles, journals, and a brief description would be great."></textarea>
+                        
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold"
+                          >Any Awards for your previous research:</span
+                        >
+                        <textarea
+                          type="text"
+                          id="awards"
+                          name="awards"
+                          class="form-control"
+                          placeholder="Have you received any awards or recognitions for your research? If so, could you describe them and their significance?"></textarea>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold"
+                          >Number of citations:</span
+                        >
+                        <textarea
+                          type="text"
+                          id="citations"
+                          name="citations"
+                          class="form-control"
+                          placeholder="How widely has your research been cited? Do you have an approximate count of citations for your published papers"></textarea>
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold"
+                          >Follow-up studies/research:</span
+                        >
+                        <textarea
+                          type="text"
+                          id="followup"
+                          name="followup"
+                          class="form-control"
+                          placeholder="provide some insights into how your current research findings have led to any follow-up studies or new research questions that you're currently exploring"></textarea>
+                      </div>
+                </fieldset>
+        </div>
+
+        <div name="futureresearch" >
+            <h5 class="py-3">
+              Your Future Research:
+            </h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text fw-semibold" id="basic-pt"
+              >Is your future research area different from current:</span
+            >
+            <select name="futureresearch"
+            id="futureresearch"
+            onchange="togglefutureresearch()">
+              <option value="None">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            </div>
+                <fieldset id="futureresearchlock" style="display: none">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text fw-semibold" id="basic-pt"
+                          >What research area are you planning on working in:</span
+                        >
+                        <input
+                          type="text"
+                          id="futureresearch_area"
+                          name="futureresearch_area"
+                          class="form-control"
+                          placeholder="Research area you want to work in future"
+                          aria-describedby="basic-pt"
+                        />
+                      </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text fw-semibold" id="basic-pt"
+                        >Why do you plan on changing your research area:</span
+                      >
+                      <input
+                        type="text"
+                        id="futureresearch_why"
+                        name="futureresearch_why"
+                        class="form-control"
+                        placeholder="Reason for changing current research area"
+                        aria-describedby="basic-pt"
+                      />
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text fw-semibold"
+                        >How do you plan to develop new skills and knowledge:</span
+                      >
+                      <input
+                        type="text"
+                        id="develop_new_skills"
+                        name="develop_new_skills"
+                        class="form-control"
+                        placeholder="How do you plan to develop new skills and knowledge for your future research"
+                      />
+                    </div>
+                </fieldset>
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text fw-semibold" id="basic-pt"
+                >Why will your future research be important:</span
+              >
+              <textarea
+                type="text"
+                id="futureresearch_imp"
+                name="futureresearch_imp"
+                class="form-control"
+                placeholder="Importance and Relevance of Future Research"
+                aria-describedby="basic-pt"></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text fw-semibold" id="basic-pt"
+                >What techniques will you use:</span
+              >
+              <textarea
+                type="text"
+                id="futuretechniques_used"
+                name="futuretechniques_used"
+                class="form-control"
+                placeholder="Methodologies and Techniques that will be employed in the Research"
+                aria-describedby="basic-pt"></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text fw-semibold" id="basic-pt"
+                >How will you contribute to your field:</span
+              >
+              <textarea
+                type="text"
+                id="futurecontribution_field"
+                name="futurecontribution_field"
+                class="form-control"
+                placeholder="Envisioned Contributions to the Field Through Future Research"
+                aria-describedby="basic-pt"></textarea>
+            </div>
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text fw-semibold" id="basic-pt"
+                >How will your research be applied commercially or academically:</span
+              >
+              <textarea
+                type="text"
+                id="futureresearch_applied"
+                name="futureresearch_applied"
+                class="form-control"
+                placeholder="Future Applications of Research: Commercial and Academic Impact"
+                aria-describedby="basic-pt"></textarea>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text fw-semibold" id="basic-pt"
+                >Will your research have an impact on allied fields:</span
+              >
+              <textarea
+                type="text"
+                id="futuresearch_impact"
+                name="futuresearch_impact"
+                class="form-control"
+                placeholder="Potential Cross-Disciplinary Impact of Future Research"
+                aria-describedby="basic-pt"></textarea>
+            </div>
+          </div>
+          <button type="submit" id="submitbtn" class="btn btn-dark my-3" onclick="togglespinner()">Submit</button>
+      </form>
+    </div>
+    <div class="container">
+      <div id="replyDiv" class="container m-3 bg-white rounded-3 shadow-lg">
+        <h4 class="fw-semibold text-center p-4">Research Statement:</h4>
+        <p class="fs-4 p-5" id="replyParagraph">{{reply}}</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" id="submitbtn_lock" style="display: none;">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function togglespinner(){
+            document.getElementById("submitbtn_lock").style.display = "block";
+        }
+    
+        function togglefutureresearch() {
+            if (document.getElementById("futureresearch").value === "Yes") {
+                document.getElementById("futureresearchlock").style.display = "block";
+            } else {
+                document.getElementById("futureresearchlock").style.display = "none";
+            }
+        }
+
+        function toggleprevresearch() {
+            if (document.getElementById("prevresearchtog").value === "Yes") {
+                document.getElementById("prevresearchlock").style.display = "block";
+            } else {
+                document.getElementById("prevresearchlock").style.display = "none";
+            }
+        }
+    </script>
+  </body>
+</html>

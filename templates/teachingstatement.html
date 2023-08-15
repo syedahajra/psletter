@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: #d5dade">
+    <nav class="navbar navbar-expand-lg" style="background-color: #a0a8ad">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-5" href="/">PSLETTER</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="#">Features</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mb-3">
+      <form
+        class="container m-5"
+        id="myForm"
+        action="/teachingstatement"
+        method="POST"
+      >
+        <div name="intro">
+          <h5>Introduce yourself:</h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Name:</span
+            >
+            <input
+              type="text"
+              id="your_name"
+              name="your_name"
+              class="form-control"
+              placeholder="Your Name"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Highest Degree:</span
+            >
+            <select name="degree">
+              <option value="None">Select Programme</option>
+              <option value="Bachelors">Bachelors</option>
+              <option value="Masters">Masters</option>
+              <option value="Ph.D">Ph.D</option>
+            </select>
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Specialization:</span
+            >
+            <input
+              type="text"
+              id="specialization"
+              name="specialization"
+              class="form-control"
+              placeholder="Your Specialization "
+              aria-describedby="basic-pt"
+            />
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >University:</span
+            >
+            <input
+              type="text"
+              id="uni_name"
+              name="uni_name"
+              class="form-control"
+              placeholder="Your University name from where you've done your specialization "
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <h5 class="py-3">Your Experience:</h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Subject(s) you have taught:</span
+            >
+            <input
+              type="text"
+              id="your_prev_subj"
+              name="your_prev_subj"
+              class="form-control"
+              placeholder=" Mention the subject(s) you have previously taught"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Subject(s) you want to teach:</span
+            >
+            <input
+              type="text"
+              id="your_subj"
+              name="your_subj"
+              class="form-control"
+              placeholder=" Mention the subject(s) you teach or are interested in teaching"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Your Relevant Experience:</span
+            >
+            <textarea
+              name="your_experience"
+              class="form-control"
+              placeholder="Any relevant teaching experience."
+              aria-label="Any relevant teaching experience."></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Current Position:</span
+            >
+            <input
+              type="text"
+              id="your_position"
+              name="your_position"
+              class="form-control"
+              placeholder="Your Current Position"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Organization(s):</span
+            >
+            <input
+              type="text"
+              id="your_organization"
+              name="your_organization"
+              class="form-control"
+              placeholder="Organization/Institution/Schools/Colleges/Uni name you have worked in"
+              aria-describedby="basic-pt"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Any other relevant position:</span
+            >
+            <input
+              type="text"
+              id="relevant_position"
+              name="relevant_position"
+              class="form-control"
+              placeholder="Any other relevant position you've ever worked as, i.e co-ordinator, head of [any department]"
+              aria-describedby="basic-pt"
+            />
+          </div>
+        </div>
+        
+        <div name="teachingphilosophy" >
+          <h5 class="py-3">
+            Your teaching philosophy:
+          </h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Your conception of how learning occurs:</span
+            >
+            <textarea
+              type="text"
+              id="learning_occurs"
+              name="learning_occurs"
+              class="form-control"
+              placeholder="Your beliefs about how students learn best, i.e active learning, critical thinking, role of the learner in the educational process."
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >A description of how your teaching facilitates student learning:</span
+            >
+            <textarea
+              type="text"
+              id="teaching_method"
+              name="teaching_method"
+              class="form-control"
+              placeholder="Explains the instructional methods and pedagogical strategies you employ to facilitate student learning, i.e techniques for promoting engagement, fostering discussions, and using technology effectively."
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >A reflection of why you teach the way you do:</span
+            >
+            <textarea
+              type="text"
+              id="reason_teaching_method"
+              name="reason_teaching_method"
+              class="form-control"
+              placeholder="Your underlying motivations and beliefs that drive your teaching methods and strategies, i.e Educational Background and Experiences, Personal Values and Beliefs, Pedagogical Influences etc"
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >The goals you have for yourself and for your students:</span
+            >
+            <textarea
+              type="text"
+              id="goals"
+              name="goals"
+              class="form-control"
+              placeholder=" "
+              aria-describedby="basic-pt">
+            </textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >What, for you, constitutes evidence of student learning:</span
+            >
+            <textarea
+              type="text"
+              id="evidence"
+              name="evidence"
+              class="form-control"
+              placeholder="Tangible and measurable indicators that demonstrate that students have acquired knowledge, skills, and competencies as a result of the educational experiences they have undergone."
+              aria-describedby="basic-pt"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >The ways in which you create an inclusive learning environment:</span
+            >
+            <textarea
+              type="text"
+              id="inclusive_learning"
+              name="inclusive_learning"
+              class="form-control"
+              placeholder=" "
+              aria-describedby="basic-pt">
+            </textarea>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text fw-semibold" id="basic-pt"
+              >Your interests in new techniques, activities, and types of learning:</span
+            >
+            <textarea
+              type="text"
+              id="your_interests"
+              name="your_interests"
+              class="form-control"
+              placeholder=" "
+              aria-describedby="basic-pt">
+            </textarea>
+          </div>
+        </div>
+          <button type="submit" id="submitbtn" class="btn btn-dark my-3" onclick="togglespinner()">Submit</button>
+      </form>
+    </div>
+    <div class="container">
+      <div id="replyDiv" class="container m-3 bg-white rounded-3 shadow-lg">
+        <h4 class="fw-semibold text-center p-4">Teaching Statement:</h4>
+        <p class="fs-4 p-5" id="replyParagraph">{{reply}}</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" id="submitbtn_lock" style="display: none;">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function togglespinner(){
+            document.getElementById("submitbtn_lock").style.display = "block";
+        }
+    </script>
+  </body>
+</html>
