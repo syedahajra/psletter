@@ -10,6 +10,10 @@ openai.api_key="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"
 def home():
     return render_template('index.html')
 
+@app.route('/features',methods=['GET', 'POST'] )
+def features():
+    return render_template('features.html')
+
 @app.route('/researchstatement',methods=['GET', 'POST'] )
 def researchstatement():
     if request.method=='POST':
@@ -183,9 +187,6 @@ def researchstatement():
         reply = response["choices"][0]["message"]["content"]
         messages.append({"role": "assistant", "content": reply})
 
-        with open('research_statement.txt', 'w') as research_statement:
-           research_statement.write(reply)
-        #print("\n"+reply+"\n")
         return render_template('researchstatement.html',reply=reply)
 
     return render_template('researchstatement.html')
@@ -255,9 +256,7 @@ def teachingstatement():
 
         reply = response["choices"][0]["message"]["content"]
         messages.append({"role": "assistant", "content": reply})
-        with open('teaching_statement.txt', 'w') as teaching_statement:
-           teaching_statement.write(reply)
-        print("\n"+reply+"\n")
+        
         return render_template('teachingstatement.html',reply=reply)
 
     return render_template('teachingstatement.html')
@@ -489,9 +488,7 @@ def ps_statement():
 
         reply = response["choices"][0]["message"]["content"]
         messages.append({"role": "assistant", "content": reply})
-        with open('personal_statement.txt', 'w') as personal_statement:
-           personal_statement.write(reply)
-        print("\n"+reply+"\n")
+        
         return render_template('psstatement.html',reply=reply)
     
     return render_template("psstatement.html")
@@ -599,9 +596,7 @@ def recom_letter():
 
         reply = response["choices"][0]["message"]["content"]
         messages.append({"role": "assistant", "content": reply})
-        with open('recom_letter.txt', 'w') as recom_letter:
-           recom_letter.write(reply)
-        print("\n"+reply+"\n")
+        
         return render_template('recomletter.html',reply=reply)
 
     return render_template('recomletter.html')
