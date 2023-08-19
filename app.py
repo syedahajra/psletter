@@ -4,7 +4,7 @@ import openai
 
 app = Flask(__name__)
 
-openai.api_key="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"
+openai.api_key="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"
 
 @app.route('/',methods=['GET', 'POST'] )
 def home():
@@ -607,4 +607,4 @@ def recom_letter():
     return render_template('recomletter.html')
 
 if __name__ == "__main__":
-    app.run(debug=True,port=8000)
+    app.run(debug=True,port=8000, host="0.0.0.0")
