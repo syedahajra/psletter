@@ -11,32 +11,37 @@
       crossorigin="anonymous"
     />
   </head>
-  <body style="background-color: #d5dade">
-    <nav class="navbar navbar-expand-lg" style="background-color: #a0a8ad">
-      <div class="container-fluid">
-        <a class="navbar-brand ms-5" href="/">PSLETTER</a>
+  <body style="background-color: #d5d5d5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-4 ps-2">
+      <div class="container">
+        <a class="navbar-brand" href="/">StatementCrafters</a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-            <a class="nav-link" href="#">Features</a>
-          </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="features">Features</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
     <div class="container mb-3">
+      <h1 class="my-4 pt-5 text-center">Craft Your Teaching Statement</h1>
       <form
-        class="container m-5"
+        class="m-5"
         id="myForm"
         action="/teachingstatement"
         method="POST"
@@ -266,7 +271,7 @@
     <div class="container">
       <div id="replyDiv" class="container m-3 bg-white rounded-3 shadow-lg">
         <h4 class="fw-semibold text-center p-4">Teaching Statement:</h4>
-        <p class="fs-4 p-5" id="replyParagraph">{{reply}}</p>
+        <p class="fs-4 p-5" id="replyParagraph" style="white-space: pre-line;">{{reply}}</p>
         <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status" id="submitbtn_lock" style="display: none;">
               <span class="visually-hidden">Loading...</span>
