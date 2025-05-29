@@ -33,11 +33,11 @@ A web application that generates customized academic documents such as recommend
    ```
 
 3. Run the Flask app:
-
+   before running update api key with your key
    ```
    python app.py
    ```
-update api key with your key
+
 
 4. Open your browser and go to `http://localhost:5000`.
 
